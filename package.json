@@ -2,10 +2,10 @@
     "name": "virtualist-js",
     "version": "0.1.3",
     "description": "A fast, minimal virtual scrolling library for large lists and grids.",
-    "main": "virtualist.js",
+    "main": "./src/virtualist.js",
     "type": "module",
     "exports": {
-        "default": "./virtualist.js"
+        "default": "./src/virtualist.js"
     },
     "author": "Antonio Fusco",
     "license": "MIT",
