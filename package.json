@@ -1,5 +1,5 @@
 {
-    "name": "virtua-list",
+    "name": "virtualist-js",
     "version": "0.1.0",
     "description": "A fast, minimal virtual scrolling library for large lists and grids.",
     "author": "Antonio Fusco",
