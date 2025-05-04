@@ -19,7 +19,7 @@ npm install virtualist-js
 ```javascript
 import VirtuaList from 'virtualist-js';
 
-new VirtuaList(container, {
+const list = new VirtuaList(container, {
     totalItems: 1000000,
     itemHeight: 30,
     generate: (index) => {
@@ -41,6 +41,13 @@ new VirtuaList(container, {
         // called after every render
     },
 });
+
+const index = 3;
+/* the generate callback will be called only for the specified item without triggering a complete render if the size of the element doesn't change (height returned from the generate function is the default one); if the size changes, a render of all the visible elements is required */
+list.updateItem(index);
+
+// clears cache and re-renders all visible elements
+list.refresh();
 ```
 
 | Option        | Type       | Required | Description                                |
