@@ -128,15 +128,11 @@ class VirtuaList {
                 const index = row * this.itemsPerRow + col;
                 if (index >= this.totalItems) break;
 
-                this.beforeGenerate?.(index, this.getElementFromCache(index));
-
                 const item = this.getItem(index);
-                const measuredSize = this.getHeightFromItem(item);
-                this.updateHeight(row, measuredSize);
+                const height = this.getHeightFromItem(item);
+                this.updateHeight(row, height);
                 const element = this.getElementFromItem(item);
                 this.setElementStyle(element, row, col);
-
-                this.afterGenerate?.(index, element);
 
                 fragment.appendChild(element);
             }
@@ -145,7 +141,7 @@ class VirtuaList {
         this.updateScrollerStyle();
 
         if (this.applyPatch) {
-            this.applyPatch(fragment);
+            this.applyPatch(this.container, fragment);
         } else {
             this.container.innerHTML = '';
             this.container.appendChild(fragment);
