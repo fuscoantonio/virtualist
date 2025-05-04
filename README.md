@@ -11,13 +11,13 @@
 ## Installation
 
 ```bash
-npm install virtualist
+npm install virtualist-js
 ```
 
 ## Usage
 
 ```javascript
-import VirtuaList from 'virtualist';
+import VirtuaList from 'virtualist-js';
 
 new VirtuaList(container, {
     totalItems: 1000000,
