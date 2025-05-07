@@ -78,6 +78,7 @@ list.refresh({
 });
 ```
 
+### Scroll to index
 ```javascript
 const index = 3;
 const animationDuration = 500;
