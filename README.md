@@ -1,23 +1,23 @@
 # VirtuaList
 
-**VirtuaList** is a lightweight, high-performance virtual scrolling library for rendering massive **lists** or **grids** efficiently. Inspired by HyperList, but harder, better, faster, stronger... just a little bit.
+**VirtuaList** is a lightweight, high-performance virtual scrolling library for rendering massive **lists** efficiently.
 
-- 🔁 Supports vertical, horizontal, and grid layouts
+- 🔁 Supports vertical and horizontal layout
 - ⚡ Blazing fast rendering even with millions of items
-- 🧠 Smart rendering through caching and minimal DOM churn
+- 🧠 Smart rendering with minimal DOM churn
 - 📦 No dependencies
 - 🌐 Framework-agnostic
 
 ## Installation
 
 ```bash
-npm install virtualist-js
+npm install virtualist.js
 ```
 
 ## Usage
 
 ```javascript
-import VirtuaList from 'virtualist-js';
+import VirtuaList from 'virtualist.js';
 
 const list = new VirtuaList(container, {
     totalItems: 1000000,
@@ -41,15 +41,9 @@ const list = new VirtuaList(container, {
         // called after every render
     },
 });
-
-const index = 3;
-/* the generate callback will be called only for the specified item without triggering a complete render if the size of the element doesn't change (height returned from the generate function is the default one); if the size changes, a render of all the visible elements is required */
-list.updateItem(index);
-
-// clears cache and re-renders all visible elements
-list.refresh();
 ```
 
+### Initialization options
 | Option        | Type       | Required | Description                                |
 | ------------- | ---------- | -------- | ------------------------------------------ |
 | `totalItems`  | `number`   | ✅        | Total number of items in the list          |
@@ -58,5 +52,35 @@ list.refresh();
 | `applyPatch`  | `function` | ❌        | Custom patching logic for replacing visible items (default is full replace) |
 | `afterRender` | `function` | ❌        | Called after every render                  |
 | `buffer`      | `number`   | ❌        | Extra rows to render above/below viewport  |
-| `itemsPerRow` | `number`   | ❌        | Number of items per row (for grids)        |
 | `horizontal`  | `boolean`  | ❌        | Enable horizontal scrolling layout         |
+---
+
+### Add single item
+```javascript
+const index = 3;
+/* adds an item at the specified index; triggers a full render to account for total height change */
+list.addItem(index);
+```
+
+### Update single item
+```javascript
+const index = 3;
+/* the generate callback will be called only for the specified item without triggering a complete render if the size of the element doesn't change; if the size changes, a render of all the visible elements is required */
+list.updateItem(index);
+```
+
+### Trigger a full re-rendering
+Useful when the amount of items changes drastically
+```javascript
+// clears cache and re-renders all visible elements
+list.refresh({
+    // optional new configurations, same as initialization options
+});
+```
+
+```javascript
+const index = 3;
+const animationDuration = 500;
+/* animation duration defaults to 300 when not provided; each subsequent call to scrollToIndex interrupts any previous unfinished call */
+list.scrollToIndex(index, animationDuration);
+```

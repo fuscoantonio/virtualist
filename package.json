@@ -1,7 +1,7 @@
 {
-    "name": "virtualist-js",
-    "version": "0.1.4",
-    "description": "A fast, minimal virtual scrolling library for large lists and grids.",
+    "name": "virtualist.js",
+    "version": "0.1.0",
+    "description": "A fast, minimal virtual scrolling library for large lists.",
     "main": "./src/virtualist.js",
     "type": "module",
     "exports": {
@@ -12,7 +12,6 @@
     "keywords": [
         "virtual list",
         "virtual scroll",
-        "grid",
         "performance",
         "ui"
     ],
