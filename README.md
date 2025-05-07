@@ -1,6 +1,6 @@
 # VirtuaList
 
-**VirtuaList** is a lightweight, high-performance virtual scrolling library for rendering massive **lists** efficiently.
+**VirtuaList** is a lightweight, high-performance virtual scrolling library for rendering massive lists efficiently.
 
 - 🔁 Supports vertical and horizontal layout
 - ⚡ Blazing fast rendering even with millions of items
