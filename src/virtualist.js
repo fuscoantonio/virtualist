@@ -20,6 +20,7 @@ class VirtuaList {
         this.scrollHandler = this.handleScroll.bind(this);
         this.container.addEventListener('scroll', this.scrollHandler, { passive: true });
 
+        this.lastStart = null;
         this.lastSize = this.getViewportSize();
         this.resizeHandler = this.handleResize.bind(this);
         this.resizeObserver = new ResizeObserver(this.resizeHandler);
@@ -406,6 +407,7 @@ class VirtuaList {
 
         this.positions = null;
         this.heightCache = null;
+        this.renderedItems = null;
         // this.cache = null;
 
         this.cancelScrollAnimation = null;

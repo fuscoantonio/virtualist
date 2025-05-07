@@ -1,4 +1,5 @@
 # VirtuaList
+[![npm](https://img.shields.io/badge/npm-v.0.1.1-red.svg)](https://www.npmjs.com/package/virtualist.js)  
 
 **VirtuaList** is a lightweight, high-performance virtual scrolling library for rendering massive lists efficiently.
 
