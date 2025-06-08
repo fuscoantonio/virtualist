@@ -65,7 +65,7 @@ class VirtuaList {
         }
 
         this.queued = true;
-        this.scrollAnimationFrame = requestAnimationFrame(() => {
+        this.renderingAnimationFrame = requestAnimationFrame(() => {
             this.queued = false;
             this.render(force);
         });
