@@ -234,7 +234,7 @@ class VirtuaList {
     addItem(index, immediate) {
         if (index < 0 || index > this.totalItems) return;
 
-        const needsRender = this.renderedItems.has(index) || index <= this.lastStart;
+        const needsRender = this.renderedItems.has(index);
         this.totalItems += 1;
 
         let tempHeight = this.defaultItemHeight;
