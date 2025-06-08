@@ -65,7 +65,7 @@ class VirtuaList {
         }
 
         this.queued = true;
-        this.scrollAnimationFrame = requestAnimationFrame(() => {
+        this.renderingAnimationFrame = requestAnimationFrame(() => {
             this.queued = false;
             this.render(force);
         });
@@ -234,7 +234,7 @@ class VirtuaList {
     addItem(index, immediate) {
         if (index < 0 || index > this.totalItems) return;
 
-        const needsRender = this.renderedItems.has(index);
+        const needsRender = this.renderedItems.has(index) || index <= this.lastStart;
         this.totalItems += 1;
 
         let tempHeight = this.defaultItemHeight;
